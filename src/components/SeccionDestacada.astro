@@ -6,11 +6,14 @@ const noticias = await getCollection("noticias");
 <section class="destacadas" id="destacadas">
   <div class="lado-izq">
     <div style="width: 500px; height: 200px; border-radius: 25px;">
-      <img
-        style="width: 100%; height: 100%; object-fit: cover;border-radius: 5px;"
-        src="https://res.cloudinary.com/durxpegdm/image/upload/v1762637631/logos/ChatGPT_Image_8_nov_2025_16_33_43_nb8cnb.png"
-        alt=""
-      />
+      <div class="glow-frame">
+        <img
+          class="glow-image"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;"
+          src="https://res.cloudinary.com/durxpegdm/image/upload/v1762637631/logos/ChatGPT_Image_8_nov_2025_16_33_43_nb8cnb.png"
+          alt=""
+        />
+      </div>
       <h2 class="slide-in " style="--delay: 0s; color:#ffffff ;">Enterate de todo con
          <div style="background: #01402e;padding:5px; width: 100px; border-radius: 10px;">RunaMedia</div>
       </h2>
@@ -149,6 +152,70 @@ const noticias = await getCollection("noticias");
   .texto span {
     font-size: 14px;
     opacity: 0.6;
+  }
+
+  /* Marco con borde difuminado animado rojo/verde alrededor de la imagen */
+  .glow-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px; /* mismo radio que la imagen */
+    isolation: isolate; /* asegura el stacking correcto */
+  }
+
+  .glow-frame > img.glow-image {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+  }
+
+  /* Capa difuminada exterior */
+  .glow-frame::before {
+    content: "";
+    position: absolute;
+    inset: -1px; /* un poco más grande para que el brillo "salga" */
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      rgba(22, 221, 155, 0.9), /* verde */
+      rgba(239, 68, 68, 0.9),  /* rojo */
+      rgba(18, 238, 165, 0.9)
+    );
+    filter: blur(100px);
+    animation: spin 6s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Borde "anillo" nítido con el degradado animado 
+  .glow-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* grosor del borde */
+    background: conic-gradient(
+      from 0deg,
+      #0b8059, /* verde */
+      #c90b0b, /* rojo */
+      #055a3e
+    );
+    animation: spin 6s linear infinite reverse; /* alterna recorrido */
+    /* Máscara para dejar solo el anillo del borde visible */
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+  }*/
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   /* Animación entrada derecha->izquierda con 'stagger' por --delay */
