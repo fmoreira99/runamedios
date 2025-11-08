@@ -1,0 +1,46 @@
+---
+const { title } = Astro.props;
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title || "RunaMedia"}</title>
+    <meta name="description" content="RunaMedia: Noticias, humor, juegos, historia y todo lo que vive la comunidad. Un solo lugar, muchas voces." />
+    <meta property="og:title" content={title || "RunaMedia"} />
+    <meta property="og:description" content="RunaMedia: Medios hechos para la gente. Noticias, humor, juegos, historia y más." />
+
+    <!-- Tipografía recomendada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0C0F12;
+        font-family: 'Poppins', sans-serif;
+        color: #ccd0d4;
+        overflow-x: hidden; /* evita scroll horizontal global */
+      }
+
+      main {
+        min-height: 70vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

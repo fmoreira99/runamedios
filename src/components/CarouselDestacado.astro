@@ -1,0 +1,133 @@
+---
+const items = [
+  {
+    img: "https://res.cloudinary.com/durxpegdm/image/upload/v1762553481/noticias/ChatGPT_Image_7_nov_2025_17_10_56_sqsny4.png",
+    title: "El club de los aburridos",
+    text: "Memes, recopilacione y por ahí uno que otro chiste u.u"
+  },
+  {
+    img: "https://res.cloudinary.com/durxpegdm/image/upload/v1762551151/noticias/ChatGPT_Image_7_nov_2025_16_31_28_1_hrxdwk.png",
+    title: "ChiquidiChiquidiboon",
+    text: "Mas memes pero, aqui son un poco mas malos."
+  },
+  {
+    img: "https://res.cloudinary.com/durxpegdm/image/upload/v1762553816/noticias/ChatGPT_Image_7_nov_2025_17_16_43_edcp1x.png",
+    title: "Universo infinito",
+    text: "Historias en universos paralelos."
+  },
+  {
+    img: "https://res.cloudinary.com/durxpegdm/image/upload/v1762551790/noticias/ChatGPT_Image_7_nov_2025_16_42_59_ltkahe.png",
+    title: "El rey Roblox",
+    text: "Todas clase de contenido de juegos y mas."
+  },
+];
+---
+<section class="game-section">
+  <div>
+     <h2 class="line-title">Destacados</h2>
+    <p style="margin-top: -40px;">Pequeña muestra de nuestros canales de YouTube; haz clic en cualquier tarjeta para visitar su página oficial.</p>
+
+  </div>
+   <div class="carousel">
+    {items.map((item) => (
+      <div class="item" style={`background-image: url(${item.img});`}>
+        <div class="item-desc">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  const items = document.querySelectorAll(".carousel .item");
+
+  // Activar primero por defecto
+  if (items.length > 0) items[0].classList.add("active");
+
+  // Cambiar al hacer clic
+  items.forEach((el) => {
+    el.addEventListener("click", () => {
+      items.forEach((i) => i.classList.remove("active"));
+      el.classList.add("active");
+    });
+  });
+</script>
+
+
+<style>
+  .game-section { 
+    padding: 60px 40px; 
+    max-width: 1400px; 
+    margin: auto; 
+    overflow: hidden;
+  }
+
+  .line-title { 
+    color: #4cf2d6; 
+    font-size: 28px; 
+    margin-bottom: 40px; 
+  }
+
+  .carousel { 
+    display: flex; 
+    gap: 20px; 
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    scrollbar-width: none; 
+    height: 500px; 
+    padding-bottom: 10px;
+  }
+
+  .carousel::-webkit-scrollbar { display: none; }
+
+  .item {
+    flex: 0 0 260px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+    overflow: hidden;
+  }
+
+  .item.active { 
+    flex: 0 0 460px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+    border: #4cf2d6 2px solid;
+  }
+
+  .item::after {
+    content: "";
+    position: absolute; 
+    inset: 0;
+    background: linear-gradient(to top, rgba(6, 209, 148, 0.459) 30%, rgba(253, 95, 95, 0));
+  }
+
+ .item-desc {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  z-index: 1;
+  transform: translateY(100%); /* oculto fuera de vista */
+  transition: transform 0.4s ease;
+  background: rgba(1, 64, 46, 1);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.item.active .item-desc {
+  transform: translateY(0); /* sube al hacer clic */
+}
+
+
+</style>
+

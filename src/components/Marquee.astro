@@ -1,0 +1,57 @@
+---
+const items = [
+  { icon: "📰", text: "Noticias actuales" },
+  { icon: "😂", text: "Memes y humor" },
+  { icon: "🎮", text: "Juegos y curiosidades" },
+  { icon: "📜", text: "Historias del mundo" },
+  { icon: "🐾", text: "AnimalIA" },
+];
+---
+
+<div class="marquee">
+  <div class="track">
+    {items.concat(items).map((item, i) => (
+      <div class="item" key={i}>
+        <span class="icon">{item.icon}</span>
+        <span class="label">{item.text}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background: linear-gradient(90deg, #0c0f12, #10161c);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 10px 0;
+}
+
+.track {
+  display: inline-flex;
+  gap: 60px;
+  animation: scroll 25s linear infinite;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #98C9FF;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.icon {
+  font-size: 28px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const post = await getEntryBySlug("noticias", slug!);
+
+if (!post) {
+  return new Response("Noticia no encontrada", { status: 404 });
+}
+
+const { Content } = await post.render();
+
+export async function getStaticPaths() {
+  const { getCollection } = await import("astro:content");
+  const posts = await getCollection("noticias");
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+---
+
+<BaseLayout title={`${post.data.title} - RunaMedios`}>
+  <article class="contenedor">
+    <h1>{post.data.title}</h1>
+    <p class="meta">{post.data.date}</p>
+    {post.data.img && <img class="cover" src={post.data.img} alt={post.data.title} />}
+    <div class="contenido">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .contenedor { max-width: 800px; margin: auto; padding: 40px 20px; }
+  h1 { margin-bottom: 8px; color: #4cf2d6; }
+  .meta { opacity: 0.7; font-size: 14px; margin-bottom: 16px; }
+  .cover { width: 100%; border-radius: 8px; margin: 16px 0 24px; }
+  .contenido :global(p) { line-height: 1.8; }
+</style>

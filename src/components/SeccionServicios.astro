@@ -1,0 +1,159 @@
+---
+const servicios = [
+  {
+    numero: "01",
+    titulo: "Noticias actuales",
+    texto:
+      "Creamos sistemas visuales consistentes y memorables. Texto de prueba largo para validar alturas, espaciados y lectura en 2–3 líneas como en la maqueta original.",
+    boton: "Ver noticias",
+    link:"/noticias",
+    img: "https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQOetkju7fAx_9B_hA1SPWdU0d5znbV5SW6xgpABad9AXuKzkTz15gdZgIOB2jBmx-6CY1h1WQbfLcUCDFGA8XNQ8u5tAvYZuNDm4KGlSNa-fnTPcUdfZ5NLCZ8u6E_P.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=DgzM0D5DOVT-4HJ6_urUog&_nc_cat=111&_nc_oc=Adllrk8JxvlXUOnouySrbwgmQxXeP7gCqWBMnHMcI_X3G-OOnfR2EXSsWedzCF6yH8I&ccb=9-4&oh=00_Afj8a_haLrRku6IMuwKm3NVmEnXOuzj3aD9gJUvE8dWKdw&oe=6910B118&_nc_sid=5b3566",
+  },
+  {
+    numero: "02",
+    titulo: "Memes y humor diario",
+    texto:
+      "Experiencias nítidas, rápidas y pensadas para SEO. Otro texto de prueba un poco más extenso para comprobar cómo fluye cuando el bloque queda a la derecha.",
+    boton: "🔒 Proximamente",
+    img: "https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQM6a0hKtpc4Srt8PHmOGPfPV5t4dKzf-xNqXDaAYRjcKeCAUwMMwlKsf03XhFn1wgly42-NNucsJn6DeWvH3wRpU7MvBLlQEyiyRGUQHMv5YMSgY1A74Dvi2KmnNq9u.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=5sdgQRsEh5SvFt68G79cXQ&_nc_cat=100&_nc_oc=AdnV40cvuXbZJp0SuC7Kns4InTJ6oRUMM7DIYLnw4OMQtET5aD3O1muQWrSAM8NI070&ccb=9-4&oh=00_AfjEbbR26XqnrhvLSNwFdtiB5sl3XOutapkPGkYcr8Ah2w&oe=69108AF1&_nc_sid=5b3566",
+  },
+  
+  
+  {
+    numero: "03",
+    titulo: "Divulgación educativa",
+    texto:
+      "Historia, misterios, curiosidades y datos reales.",
+    boton: "🔒 Proximamente",
+    img: "https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQMS6HlYkJfZgG5XeuZtGiJulDcqa9VTNSySrzCFrvHxrXFnYyz4tSxuPQkgp802srNWv9kh_N3r8Yc8PnxUyE9Pecqoj1nZwlU6VoPNnilSTZMhvzKxkFAIH76IKMgp_a1BZGHPaCpPyvkfUfuDVAqftNj7-A.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=vWoiCvxy_CwOi0tSMwp1Ug&_nc_cat=101&_nc_oc=AdmnbeQYzDjSK-k-xpQoydT_THRKO0-qpdPVm-R8nWFIwjixwizIM0qD6m2Y6vOlJqE&ccb=9-4&oh=00_AfgFuZN8zsaoOAuTLX9EGk_wGb3Wsyzt7lGYN8l5oWabGA&oe=69108A94&_nc_sid=5b3566",
+  },
+  {
+    numero: "05",
+    titulo: "Contenido gamer",
+    texto:
+      "Análisis de videojuegos, gameplay y desafíos divertidos.",
+    boton: "🔒 Proximamente",
+    img: "https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQMtymidJethTvGmHuYaJNYlrQMbzn5mv7_DjP2JL7ZANanCZhNO927FIF-cQRVL18F3-FPdTGTMWd76OnG_jG4-12GNaGgwAmQUchFNDQxr9ToUKOlVdOaWLGCqkBhIeHtSuP06OKvX0cRoJd6oB20c0aghpA.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=abPMiDhjqe93VTgJbNSNeg&_nc_cat=108&_nc_oc=AdmKES9ywkTLXmY4NBi5N4qXyczNM89s_1yfo6x0e3tB6YW3cSwWEV2NpgLYGDoRiA4&ccb=9-4&oh=00_AfhQ6dIAc4E4hGoj66mBmNrnh_xGizGThDWG_8rYydw4Hw&oe=69108EDF&_nc_sid=5b3566",
+  },
+  {
+    numero: "06",
+    titulo: "Clips y videos cortos",
+    texto:
+      "Contenido pensado para redes: rápido, entretenido y real.",
+    boton: "🔒 Proximamente",
+    img: "https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQO6xWD1l3ZhMPOK2MeWYTYJfwyIPmxIOX0unG_ZtxwNaUjyYOq6T2PSIwS8_iFTxEO8MgLhCUyrFbc8PpZ9AJmGCSLDViMcejHvJecz3wsXRLFH6pm26YlQZ5ixOh_ZSobJaKxO2_cKbo-qe9MWaRFNh7LbpQ.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=VsjsbedQ_2jzfjuqJz7JQg&_nc_cat=105&_nc_oc=AdmEm4xavHvkRbAAhTGcWAOfgkWvAWys0zl58agw04Qz4XOii_a8a5nrUvszzdUdLlE&ccb=9-4&oh=00_Afj4hqUbQjwBJzdyY2XwO1Z8f4hgAFWsVLLxbtJDsCynig&oe=69109C2C&_nc_sid=5b3566",
+  }
+];
+---
+
+<section class="servicios">
+  {servicios.map((item, i) => (
+    <article class={`bloque ${i % 2 === 1 ? "invertido" : ""}`}>
+      <figure class="media" aria-label={item.titulo}>
+        <img src={item.img} alt={item.titulo} loading="lazy" />
+        <figcaption class="badge">{item.numero}</figcaption>
+      </figure>
+
+      <div class="contenido">
+        <h3 class="princ-verde">{item.titulo}</h3>
+        <p>{item.texto}</p>
+        <a href={item.link} 
+        class={`btn ${item.boton.includes("🔒")  ? "disabled" : ""}`}
+        >{item.boton}</a>
+      </div>
+    </article>
+  ))}
+</section>
+
+<style>
+  .disabled 
+  {
+  pointer-events: none; /* Desactiva clics */
+  opacity: 0.5;         /* Se ve deshabilitado */
+  cursor: default;       /* Cambia el cursor */
+  text-decoration: none; /* Quita subrayado */
+  }
+  /* Contenedor general */
+  .servicios{
+    display:flex;flex-direction:column;gap:0;
+    background: var(--bg);
+  }
+.princ-verde 
+{
+  color: #02A073 !important;x
+}
+  /* Bloque: 2 columnas con alturas consistentes */
+  .bloque{
+    display:grid;
+    grid-template-columns:minmax(320px,40%) 1fr;
+    grid-template-areas:"media content";
+    align-items:stretch;
+    border-top:1px solid #1f2a44;
+    border-bottom:1px solid #0b1224;
+  }
+  .bloque.invertido{
+    grid-template-columns:1fr minmax(320px,40%);
+    grid-template-areas:"content media";
+  }
+
+  /* Media (imagen) */
+  .media{
+    grid-area:media; position:relative; margin:0; overflow:hidden;
+    min-height:280px; /* altura uniforme */
+    background:#000;  /* si la img falla, se ve como el cuadrado negro de la maqueta */
+  }
+  .media img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(.85);
+    transition:transform .5s ease;
+  }
+  .bloque:hover .media img{ transform:scale(1.03); }
+
+  /* Número superpuesto */
+  .badge{
+    position:absolute; inset:auto 12px 12px auto;
+    background:#000000cc; color:var(--text);
+    border:1px solid #263155; border-radius:8px;
+    padding:6px 10px; font-weight:800; letter-spacing:.04em;
+  }
+
+  /* Panel de texto (estilo “blanco” adaptado al dark de tu sitio) */
+  .contenido{
+    grid-area:content;
+    background:var(--panel);
+    padding:48px 56px;
+    display:flex; flex-direction:column; justify-content:center;
+    gap:14px;
+  }
+  .contenido h3{
+    font-size:28px; line-height:1.2; margin:0;
+    color:var(--text); font-weight:800;
+  }
+  .contenido p{
+    color:var(--muted); line-height:1.7; font-size:16px;
+    max-width:58ch;
+  }
+
+  .btn{
+    align-self:flex-start;
+    background:var(--btn); color:var(--text);
+    border:1px solid #27314c; border-radius:8px;
+    padding:10px 16px; font-weight:700; text-decoration:none;
+    transition:background .2s, color .2s, transform .1s;
+  }
+  .btn:hover{ background:#01402E; color:#ffffff; }
+  .btn:active{ transform:translateY(1px); }
+
+  /* Responsive */
+  @media (max-width: 980px){
+    .bloque,
+    .bloque.invertido{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "media"
+        "content";
+    }
+    .contenido{ padding:28px 22px; }
+    .media{ min-height:220px; }
+  }
+</style>

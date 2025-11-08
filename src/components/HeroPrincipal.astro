@@ -1,0 +1,446 @@
+---
+import SeccionServicios from "../components/SeccionServicios.astro";
+import Marquee from "../components/Marquee.astro";
+
+ import MarqueeLogos from "../components/MarqueeLogos.astro"; // Comentado hasta tener logos
+---
+
+<section class="hero" id="inicio">
+  <div class="hero-inner contenedor">
+    <div class="text fade-in-left">
+      <h1 style="font-size: 100px;"><b class="prin-verde">Runa</b>Media</h1>
+      <h2 class="color-sub">Noticias, humor, juegos, historia y todo lo que vive la comunidad.</h2>
+      <p class="lead">
+        Mantente informado con análisis profundos, cobertura en tiempo real y
+        reportajes especiales sobre política, economía, cultura y tecnología.
+      </p>
+      <ul class="features">
+        <li>✓ Actualización diaria</li>
+        <li>✓ Reportajes independientes</li>
+        <li>✓ Newsletter semanal gratis</li>
+      </ul>
+      <div class="cta">
+        <a href="#canales" class="btn color-verde">Explorar contenidos</a>
+        <a href="/noticias" class="btn secundario color-sub">Ver noticias</a>
+      </div>
+    </div>
+
+    <div class="carousel fade-in-right" aria-label="Carrusel de imágenes">
+      <div class="slides">
+        <div class="slide-wrapper active">
+          <img class="slide" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762507683/noticias/ChatGPT_Image_7_nov_2025_04_27_51_ehwpxc.png" alt="Portada 1" />
+          <div class="slide-overlay">
+            <span class="slide-tag">ver contenido</span>
+            <h3 class="slide-title">Título de la noticia 1</h3>
+            <p class="slide-desc">Breve descripción de la noticia destacada para invitar al lector a explorar más.</p>
+          </div>
+        </div>
+        <div class="slide-wrapper">
+          <img class="slide" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762533887/noticias/con_personajes_de_video_juegos_y_degradaso_1_wt5bdq.jpg" alt="Portada 2" />
+          <div class="slide-overlay">
+            <span class="slide-tag">ver contenido</span>
+            <h3 class="slide-title">Título de la noticia 2</h3>
+            <p class="slide-desc">Breve descripción de la noticia destacada para invitar al lector a explorar más.</p>
+          </div>
+        </div>
+        <div class="slide-wrapper">
+          <img class="slide" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762534643/noticias/cient_ficos_famosos_y_cosas_de_ciencia_colores_tdtxxi.jpg" alt="Portada 3" />
+          <div class="slide-overlay">
+            <span class="slide-tag">ver contenido</span>
+            <h3 class="slide-title">Título de la noticia 3</h3>
+            <p class="slide-desc">Breve descripción de la noticia destacada para invitar al lector a explorar más.</p>
+          </div>
+        </div>
+      </div>
+      <div class="dots" role="tablist" aria-label="Indicadores del carrusel">
+        <button class="dot active" aria-label="Ir a la imagen 1" role="tab"></button>
+        <button class="dot" aria-label="Ir a la imagen 2" role="tab"></button>
+        <button class="dot" aria-label="Ir a la imagen 3" role="tab"></button>
+      </div>
+    </div>
+  </div>
+</section>
+<Marquee />
+
+
+<style>
+  .prin-verde
+  {
+    color: #fff;
+    background: #01402E;
+    padding: 5px;
+    border-radius: 10px;
+
+  }
+  .buttonCuti {
+  animation: vibra 0.4s infinite ease-in-out;
+}
+.buttonCuti:hover {
+  animation: vibra 0.4s ease-in-out;
+}
+@keyframes vibra {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-1px, 1px) scale(1.03); }
+  50% { transform: translate(1px, -1px) scale(1); }
+  75% { transform: translate(-1px, -1px) scale(1.03); }
+}
+  .color-sub {
+
+    color: rgba(255, 255, 255, 0.932) !important;
+  }
+  .bg_verde
+  {
+    background: #01402E !important;
+  }
+  .color-verde {
+    background: #E00B00 !important;
+    color: #fff !important;
+  }
+  /* Animaciones de entrada */
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+  .lead { margin-top: 8px; color: #ccd0d4; }
+  .features { margin: 12px 0 0; padding-left: 18px; }
+  .features li { margin: 4px 0; }
+  .cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .princ-verde 
+  {
+    color: #02a073;
+  }
+</style>
+
+
+
+<section class="principales contenedor"  id="principales">
+  <h2 class="titulo-seccion princ-verde ">Noticias principales</h2>
+  <div class="grid-3">
+    <a class="card" href="/noticias/noticia-1">
+      <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762540572/noticias/gu_a_completa_c_mo_ganar_dinero_por_internet_2_modxom.jpg" alt="Noticia destacada 1" />
+      <h3>Medida económica anunciada</h3>
+      <p>Resumen breve de la noticia más relevante de la semana.</p>
+    </a>
+    <a class="card" href="/noticias">
+      <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762541707/noticias/contexto_de_descuento_y_promociones_una_imagen_wdoe7i.jpg" alt="Noticia destacada 2" />
+      <h3>Panorama nacional</h3>
+      <p>Claves del día: lo que no te puedes perder.</p>
+    </a>
+    <a class="card" href="/noticias">
+      <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762544331/noticias/ChatGPT_Image_7_nov_2025_14_38_44_n2hvi6.png" alt="Noticia destacada 3" />
+      <h3>Tendencias y análisis</h3>
+      <p>La explicación detrás de los hechos más comentados.</p>
+    </a>
+  </div>
+  <div class="acciones">
+    <a class="btn secundario color-verde buttonCuti" href="/noticias">Ver todas las noticias...</a>
+  </div>
+</section>
+
+
+<SeccionServicios />
+
+
+<section class="recomendadas contenedor" id="recomendadas">
+  <h2 class="titulo-seccion princ-verde">Páginas recomendadas</h2>
+  <div class="grid-4">
+    <a class="mini"  href="/noticias">
+      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQOvqNuZImcGDIhZ4iMr3JCeM1xwd3WpN7pMtLLfxl2z_6tidstsTTQ-hz7j4GlCa_TNaQyczWZEDz0vtVL7hERhRtgUoTdp8ne9T-F5cLQOoha4aOcRY1eo4Vb38_PScUal_sRsU6BYlkGX0Lrmc3kb2UqUtg.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=nzEzA2cZZa11BctstaSU3w&_nc_cat=102&_nc_oc=Adk3EY0dnbf0XZIu1dTDkgwDE23irHKWGR1UkmEPk6nmip0WlFNrp6lyKbsmNy9qGVg&ccb=9-4&oh=00_Afj-2yGiFo9rgYNLfWtqHR3CNYY1q5FOGGHaolPSqsdc5g&oe=691037CD&_nc_sid=5b3566" alt="Noticias" />
+      <div class="info" >
+        <span class="tag">Historias anonimas</span>
+        <p>Lee historias y comparte tus propias historias</p>
+      </div>
+    </a>
+    <a class="mini" style="background:#01402E ;" href="https://gamer.zonasilau.site/">
+      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m340/AQPLNCOKGhm2H_JDRvFd-2nzw_pDEA_oHg2IGxYz8_fZKhCAx53iUbBQYJhOYTP3XrDfyv4FaeKOsJAd2MPVfuJBvO48FFPourD4bujJnVjDJoYtECmS9GdAwSO64yh9VrEJ5Qzmi7S_6QYoLEGUM_6V1pq73w.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=NKDZuMBgK_IL8saDxIsP4Q&_nc_cat=106&_nc_oc=AdkbEoP_GA9aSE3XFhvYqbu744geTfrhTV3ADiK0h3TaqVBwMJoPcbzqZASYMQrY424&ccb=9-4&oh=00_AfhEc0xHxNv9-zu4onILaURHL-Rbu8avMhEtvoPG_PAiwQ&oe=691025B5&_nc_sid=5b3566" alt="Galería" />
+      <div class="info" >
+        <span class="tag">Galería gamer</span>
+        <p>Imágenes que cuentan historias.</p>
+      </div>
+    </a>
+    <a class="mini" style="background:#0C0F12 ;" href="https://www.cuantocabron.com/">
+      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQMJGtrjP38Vom0pc4TqKd5PFBUPimt8FNpJJVRaI93F4CgANm4pqi0MuCpfhhyymtK4K7_d7KHD5TJ9xlmjfBSVvYU1X1_JzxigE0S57LdFMp1DrRIVFGBjhOdfP6w7Qvv32p4pdQXeZHWIazIEhZZJJVb0qw.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=XVkioAZSo6UaT9TKTdQGpw&_nc_cat=109&_nc_oc=Adn60_itDmndFm2rIE1Bf_pXL2vxyz4zq5ItdXqxK8N7R5_ML0xMjNjRwdUmmr8kia4&ccb=9-4&oh=00_AfjktbUMSltKRAc85t33950CV0k9AS34_-YIkNXZNXMwVw&oe=6910A1C8&_nc_sid=5b3566" alt="Glosario" />
+      <div class="info">
+        <span class="tag">Memes</span>
+        <p>Conceptos clave explicados de forma simple.</p>
+      </div>
+    </a>
+    <a class="mini" style="background:#01402E ;" href="https://www.instagram.com/belite.medicinaestetica/">
+      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m257/AQM-K9E2PhXAtdj1-tRrlIaDj28MQ-ha5miiPj6Mk49EZ2-AXbnKt3QfCLyU9Lyl9njbpBAxwZmoVCeUxLIHZWrwW1UyTWLiRUuQ8mksoL-WlovqWc3rsY4APsDEFC08.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=GsgfyqqGwoZFiCc06N8BIQ&_nc_cat=106&_nc_oc=AdmNKWokA-TtaDPr5R3S47HizHpoKeWQU8KZN29qD6Nws-dGzlJfO4JlGbfSGTvLKK0&ccb=9-4&oh=00_Afg5eGyYPty33S11AgXJFN7NT38xtqiBeJ5XqrxHJV4PZw&oe=6910271B&_nc_sid=5b3566" alt="Sobre" />
+      <div class="info">
+        <span class="tag">Promociones y códigos</span>
+        <p>Quiénes somos y cómo trabajamos.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<style>
+  .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.grid-2 h3 {
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+.grid-2 p {
+  line-height: 1.6;
+}
+</style>
+<section class="llamado contenedor" id="contacto">
+  <h2 class="titulo-seccion princ-verde">Llamado a la comunidad</h2>
+
+  <div class="grid-2">
+    <div class="col">
+      <h3>Misión</h3>
+      <p>Crear contenido que informe y entretenga sin complicaciones, conectando a una comunidad que disfruta aprender, reír y compartir todos los días.</p>
+    </div>
+
+    <div class="col">
+      <h3>Visión</h3>
+      <p>Convertirnos en una plataforma digital reconocida por ofrecer información clara, humor sano y cultura digital accesible para todo el mundo.</p>
+    </div>
+  </div>
+
+ <!--<a class="btn color-verde" href="#canales">Ser parte</a> --> 
+</section>
+
+
+<style>
+  .hero { padding: 0px 20px; background: linear-gradient(135deg, #0c0f12 10%, #10161c 90%); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 360px; align-items: center; gap: 36px; }
+  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } }
+  .text h1 {
+    font-size: 48px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 800;
+  }
+  .text h2 {
+    margin-top: 12px;
+    color: #01402E;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .btn {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 6px;
+    background: #4cf2d6;
+    color: #0c0f12;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #36bba5;
+  }
+
+  /* Layout utilitario */
+  .contenedor { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .titulo-seccion { color: #4cf2d6; margin: 0 0 18px; font-size: 28px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Cards principales */
+  .card { background: #01402E; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 14px; text-decoration: none; color: #ccd0d4; transition: transform .18s ease, background .18s ease; display: block; }
+  .card:hover { background: #01402E; transform: translateY(-2px); }
+  .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; background: #0c0f12; }
+  .card h3 { margin: 12px 0 6px; font-size: 18px; color: #e8ecef; }
+  .card p { margin: 0; opacity: 0.75; font-size: 14px; }
+  .acciones { margin-top: 18px; text-align: right; }
+  .btn.secundario { background: transparent; color: #4cf2d6; border: 1px solid #2a3b46; }
+  .btn.secundario:hover { background: #142026; }
+
+  /* Recomendadas */
+  .mini { display: flex; gap: 12px; align-items: center; background: #0f141a; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px; color: #ccd0d4; text-decoration: none; transition: background .18s ease; }
+  .mini {
+    transition: background 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+  }
+  .mini:hover {
+    background: #131b23;
+    transform: scale(1.12);
+    z-index: 1;
+  }
+  .mini img { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; background: #0c0f12; }
+  .mini .tag { display: inline-block; font-size: 12px; font-weight: 600; color: #ffffff; background: #e00b00a9; border-radius: 999px; padding: 3px 10px; margin-bottom: 6px; }
+  .mini p { margin: 0; font-size: 13px; opacity: 0.8; }
+  /* Canales */
+  .canales-grid { gap: 18px; }
+  .canal { background: #0f141a; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px; }
+  .canal h3 { margin: 0 0 6px; color: #e8ecef; font-size: 18px; }
+  .canal p { margin: 0 0 6px; font-size: 14px; opacity: 0.85; }
+  /* Valores */
+  .lista-valores { margin: 0; padding-left: 18px; }
+  .lista-valores li { margin: 6px 0; }
+  .llamado p { margin: 0 0 12px; }
+</style>
+
+<style>
+  /* Carrusel con efecto glow (9:16) */
+  .carousel { 
+    width: 360px; 
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 900px) { .carousel { width: 260px; } }
+
+  /* EFECTO GLOW ANIMADO - Debe ir en el carousel, no en slides */
+  .carousel::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    filter: blur(10px);
+    -webkit-filter: blur(100px);
+    background: linear-gradient(270deg, #01402E, #038239);
+    background-size: 200% 200%;
+    animation: animateGlow 10s ease infinite;
+    border-radius: 12px;
+  }
+
+  @keyframes animateGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .slides { 
+    position: relative; 
+    aspect-ratio: 9 / 16; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    background: #0c0f12; 
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Mostrar/ocultar cada slide por wrapper */
+  .slide-wrapper { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    opacity: 0; 
+    transition: opacity .35s ease; 
+  }
+  .slide-wrapper.active { opacity: 1; }
+
+  .slide { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+  }
+  
+  .dots { 
+    display: flex; 
+    gap: 8px; 
+    justify-content: center; 
+    margin-top: 10px; 
+  }
+  .dot { 
+    width: 8px; 
+    height: 8px; 
+    border-radius: 999px; 
+    border: none; 
+    background: #2a3b46; 
+    cursor: pointer; 
+    padding: 0; 
+  }
+  .dot.active { background: #4cf2d6; }
+
+  /* Overlay con título y descripción */
+  .slide-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, rgba(12,15,18,0) 0%, rgba(12,15,18,0.75) 40%, rgba(12,15,18,0.95) 100%);
+    color: #e8ecef;
+  }
+  .slide-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #0c0f12;
+    background: #4cf2d6;
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 6px;
+  }
+  .slide-title { margin: 6px 0 4px; font-size: 16px; font-weight: 700; }
+  .slide-desc { margin: 0; font-size: 13px; opacity: 0.85; }
+</style>
+
+<script is:inline>
+  function initCarousels() {
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach((carousel) => {
+      const slides = Array.from(carousel.querySelectorAll('.slide'));
+      const wrappers = Array.from(carousel.querySelectorAll('.slide-wrapper'));
+      const dots = Array.from(carousel.querySelectorAll('.dot'));
+      let i = wrappers.findIndex((w) => w.classList.contains('active'));
+      if (i < 0) i = 0;
+
+      const show = (n) => {
+        wrappers.forEach((w, idx) => w.classList.toggle('active', idx === n));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === n));
+        i = n;
+      };
+
+      let timer = null;
+      const start = () => (timer = setInterval(() => show((i + 1) % wrappers.length), 4000));
+      const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+      dots.forEach((d, idx) => d.addEventListener('click', () => { stop(); show(idx); start(); }));
+
+      show(i);
+      start();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousels);
+  } else {
+    initCarousels();
+  }
+</script>
