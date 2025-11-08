@@ -5,27 +5,53 @@ const noticias = await getCollection("noticias");
 
 <section class="destacadas" id="destacadas">
   <div class="lado-izq">
-    <h2 class="slide-in" style="--delay: 0s;">RunaMedia</h2>
-    <p class="slide-in" style="--delay: 0.08s;">Noticias diarias sobre tecnología, negocios y actualidad.</p>
-
-    <form class="suscripcion slide-in" style="--delay: 0.16s;">
-      <input type="email" placeholder="Tu correo" />
-      <button>Suscribirme</button>
-    </form>
-
-    <div class="ads slide-in" style="--delay: 0.24s;"><p>Publicidad</p></div>
+    <div style="width: 500px; height: 200px; border-radius: 25px;">
+      <img
+        style="width: 100%; height: 100%; object-fit: cover;border-radius: 5px;"
+        src="https://res.cloudinary.com/durxpegdm/image/upload/v1762637631/logos/ChatGPT_Image_8_nov_2025_16_33_43_nb8cnb.png"
+        alt=""
+      />
+      <h2 class="slide-in " style="--delay: 0s; color:#ffffff ;">Enterate de todo con
+         <div style="background: #01402e;padding:5px; width: 100px; border-radius: 10px;">RunaMedia</div>
+      </h2>
+      <p class="slide-in" style="--delay: 0.08s;">
+        Noticias diarias sobre tecnología, chismes y mas. Navega entre nuestras publicaciones y conoce que pasa en el mundo.
+      </p>
+      <script type="text/javascript">
+        atOptions = {
+          key: "35e985a5b4f4a38f982c6df2076419fc",
+          format: "iframe",
+          height: 50,
+          width: 320,
+          params: {},
+        };
+      </script>
+      <script
+        type="text/javascript"
+        src="//www.highperformanceformat.com/35e985a5b4f4a38f982c6df2076419fc/invoke.js"
+      ></script>
+    </div>
   </div>
 
   <div class="lado-der">
-    {noticias.slice(-3).reverse().map((post, idx) => (
-      <a class="card slide-in" style={`--delay: ${idx * 0.1}s`} href={`/noticias/${post.slug}`}>
-        <img src={post.data.img} alt={post.data.title} />
-        <div class="texto">
-          <h3>{post.data.title}</h3>
-          <span>{post.data.date}</span>
-        </div>
-      </a>
-    ))}
+    {
+      noticias
+        .slice(-3)
+        .reverse()
+        .map((post, idx) => (
+          <a
+            class="card slide-in"
+            style={`--delay: ${idx * 0.1}s`}
+            href={`/noticias/${post.slug}`}
+          >
+            <img src={post.data.img} alt={post.data.title} />
+            <div class="texto">
+              <h3>{post.data.title}</h3>
+              <span>{post.data.date}</span>
+            </div>
+          </a>
+        ))
+    }
   </div>
 </section>
 
@@ -67,7 +93,7 @@ const noticias = await getCollection("noticias");
 
   .suscripcion button {
     padding: 10px 18px;
-    background: #01402E;
+    background: #01402e;
 
     border-radius: 6px;
     cursor: pointer;
@@ -77,7 +103,7 @@ const noticias = await getCollection("noticias");
 
   .ads {
     margin-top: 40px;
-    background: #0C0F12;
+    background: #0c0f12;
     border: 1px dashed #4cf2d6;
     border-radius: 6px;
     height: 160px;
@@ -96,7 +122,7 @@ const noticias = await getCollection("noticias");
     display: grid;
     grid-template-columns: 160px 1fr;
     gap: 16px;
-    background: #0C0F12;
+    background: #0c0f12;
     border-radius: 8px;
     padding: 12px;
     text-decoration: none;
@@ -127,8 +153,14 @@ const noticias = await getCollection("noticias");
 
   /* Animación entrada derecha->izquierda con 'stagger' por --delay */
   @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   .slide-in {
     opacity: 0;

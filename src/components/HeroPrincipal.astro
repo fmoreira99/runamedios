@@ -1,7 +1,7 @@
 ---
 import SeccionServicios from "../components/SeccionServicios.astro";
 import Marquee from "../components/Marquee.astro";
-
+import SeccionDestacada from "../components/SeccionDestacada.astro";
  import MarqueeLogos from "../components/MarqueeLogos.astro"; // Comentado hasta tener logos
 ---
 
@@ -61,7 +61,6 @@ import Marquee from "../components/Marquee.astro";
   </div>
 </section>
 <Marquee />
-
 
 <style>
   .prin-verde
@@ -134,33 +133,160 @@ import Marquee from "../components/Marquee.astro";
   {
     color: #02a073;
   }
+  /* Banner 300x250 */
+  .ad-banner { display:flex; justify-content:center; margin:16px 0 28px; }
+  .ad-300x250 {
+    width:300px; height:250px; display:flex; align-items:center; justify-content:center;
+    border-radius:12px; border:1px dashed rgba(255,255,255,0.35);
+    background: rgba(0,0,0,0.15); color:#e8ecef; font-weight:700; letter-spacing:.02em;
+  }
+  @media (max-width:340px){ .ad-300x250{ transform:scale(.9); transform-origin: top center; } }
 </style>
 
 
 
 <section class="principales contenedor"  id="principales">
-  <h2 class="titulo-seccion princ-verde ">Noticias principales</h2>
+  <h2 class="titulo-seccion princ-verde reveal-up" style="--delay: .05s">Noticias principales</h2>
   <div class="grid-3">
-    <a class="card" href={import.meta.env.BASE_URL + 'noticias/noticia-1'}>
+    <a class="card reveal-up" style="--delay: .12s" href={import.meta.env.BASE_URL + 'noticias/noticia-1'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762540572/noticias/gu_a_completa_c_mo_ganar_dinero_por_internet_2_modxom.jpg" alt="Noticia destacada 1" />
       <h3>Medida económica anunciada</h3>
       <p>Resumen breve de la noticia más relevante de la semana.</p>
     </a>
-    <a class="card" href={import.meta.env.BASE_URL + 'noticias'}>
+    <a class="card reveal-up" style="--delay: .2s" href={import.meta.env.BASE_URL + 'noticias'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762541707/noticias/contexto_de_descuento_y_promociones_una_imagen_wdoe7i.jpg" alt="Noticia destacada 2" />
       <h3>Panorama nacional</h3>
       <p>Claves del día: lo que no te puedes perder.</p>
     </a>
-    <a class="card" href={import.meta.env.BASE_URL + 'noticias'}>
+    <a class="card reveal-up" style="--delay: .28s" href={import.meta.env.BASE_URL + 'noticias'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762544331/noticias/ChatGPT_Image_7_nov_2025_14_38_44_n2hvi6.png" alt="Noticia destacada 3" />
       <h3>Tendencias y análisis</h3>
       <p>La explicación detrás de los hechos más comentados.</p>
     </a>
   </div>
   <div class="acciones">
-    <a class="btn secundario color-verde buttonCuti" href={import.meta.env.BASE_URL + 'noticias'}>Ver todas las noticias...</a>
+    <a class="btn secundario color-verde buttonCuti reveal-up" style="--delay: .36s" href={import.meta.env.BASE_URL + 'noticias'}>Ver todas las noticias...</a>
   </div>
 </section>
+
+ <SeccionDestacada />
+<style>
+  /* Animación scroll para "Noticias principales" */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(6px);
+    transition: transform .6s ease, opacity .6s ease, filter .6s ease;
+    transition-delay: var(--delay, 0s);
+    will-change: transform, opacity, filter;
+  }
+  .in-view.reveal-up {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add('in-view');
+        else e.target.classList.remove('in-view');
+      }
+
+    document.querySelectorAll('#principales .reveal-up, #recomendadas .reveal-rise')
+      .forEach((el) => io.observe(el));
+
+    }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+
+    const sel = '#principales .reveal-up, #recomendadas .reveal-rise';
+    const nodes = document.querySelectorAll(sel);
+    nodes.forEach((el) => io.observe(el));
+
+    // Semilla inicial para elementos ya visibles en carga
+    const seed = () => {
+      nodes.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in-view');
+      });
+    };
+    seed();
+    window.addEventListener('load', seed, { once: true });
+ theirs
+  })();
+</script>
+
+<style>
+  /* Efecto de latido + borde brillante verde/rojo para la sección "Llamado a la comunidad" */
+  .llamado {
+    position: relative;
+    border: 2px solid #0fbf8d; /* verde base */
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-top: 30px;
+    background: linear-gradient(180deg, rgba(1,64,46,0.12), rgba(224,11,0,0.06));
+    box-shadow:
+      0 0 0 0 rgba(15,191,141,0.0),
+      0 0 24px 4px rgba(15,191,141,0.18),
+      inset 0 0 24px 2px rgba(15,191,141,0.10);
+    animation:
+      heartbeat 2.8s ease-in-out infinite,
+      glowShift 4.8s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  /* Grid interno, por si quieres resaltar tarjetas */
+  .llamado .grid-2 { gap: 14px; }
+  .llamado .col { background: rgba(0,0,0,0.12); border-radius: 10px; padding: 16px; }
+
+  /* Titular con leve brillo acompasado */
+  .llamado .titulo-seccion {
+    text-shadow: 0 0 10px rgba(15,217,161,0.25);
+    animation: titlePulse 4.8s ease-in-out infinite;
+  }
+
+  @keyframes heartbeat {
+    0%   { transform: scale(1); }
+    10%  { transform: scale(1.012); }
+    20%  { transform: scale(1); }
+    30%  { transform: scale(1.018); }
+    40%  { transform: scale(1); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes glowShift {
+    0%, 100% {
+      border-color: #10d9a1;
+      box-shadow:
+        0 0 0 0 rgba(16,217,161,0.06),
+        0 0 36px 7px rgba(16,217,161,0.32),
+        inset 0 0 30px 4px rgba(16,217,161,0.18);
+    }
+    50% {
+      border-color: #3bf8ff;
+      box-shadow:
+        0 0 0 0 rgba(255,59,59,0.06),
+        0 0 36px 7px rgba(59, 255, 245, 0.3),
+        inset 0 0 30px 4px rgba(255,59,59,0.16);
+    }
+  }
+
+  @keyframes titlePulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(15,217,161,0.22); }
+    50%      { text-shadow: 0 0 14px rgba(59, 248, 255, 0.28); }
+  }
+
+  /* Respeta usuarios con reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .llamado { animation: none; }
+    .llamado .titulo-seccion { animation: none; }
+  }
+  .recomendadas
+  {
+    margin: 40px 20px 100px 100px;
+  }
+</style>
 
 
 <SeccionServicios />
@@ -219,7 +345,7 @@ import Marquee from "../components/Marquee.astro";
 }
 </style>
 <section class="llamado contenedor" id="contacto">
-  <h2 class="titulo-seccion princ-verde">Llamado a la comunidad</h2>
+  <h2 class="titulo-seccion princ-verde">Conocenos!</h2>
 
   <div class="grid-2">
     <div class="col">
