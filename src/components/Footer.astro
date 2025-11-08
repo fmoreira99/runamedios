@@ -12,14 +12,14 @@
     <div class="col menu-social">
       <h4>Menú</h4>
       <ul class="footer-menu">
-        <li><a href="/#inicio">Inicio</a></li>
-        <li><a href="/noticias">Noticias</a></li>
-        <li><a href="/#memes">Memes</a></li>
-        <li><a href="/#gamer">Gamer</a></li>
-        <li><a href="/#historia">Historia y Cultura</a></li>
-        <li><a href="/#animales">Animales</a></li>
-        <li><a href="/#canales">Nuestros Canales</a></li>
-        <li><a href="/#contacto">Contacto / Colaboraciones</a></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href={import.meta.env.BASE_URL + 'noticias'}>Noticias</a></li>
+        <li><a href="#memes">Memes</a></li>
+        <li><a href="#gamer">Gamer</a></li>
+        <li><a href="#historia">Historia y Cultura</a></li>
+        <li><a href="#animales">Animales</a></li>
+        <li><a href="#canales">Nuestros Canales</a></li>
+        <li><a href="#contacto">Contacto / Colaboraciones</a></li>
       </ul>
 
       <h4>Redes</h4>
@@ -46,15 +46,15 @@
     <!-- Columna 3: Enlaces con imágenes -->
     <div class="col enlaces">
       <h4>Recomendados</h4>
-      <a class="enlace-card" href="/noticias">
+      <a class="enlace-card" href={import.meta.env.BASE_URL + 'noticias'}>
         <img loading="lazy" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762544331/noticias/ChatGPT_Image_7_nov_2025_14_38_44_n2hvi6.png" alt="Noticias" />
         <span>Noticias</span>
       </a>
-      <a class="enlace-card" href="/galeria">
+      <a class="enlace-card" href={import.meta.env.BASE_URL + 'galeria'}>
         <img loading="lazy" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762533887/noticias/con_personajes_de_video_juegos_y_degradaso_1_wt5bdq.jpg" alt="Galería" />
         <span>Galería</span>
       </a>
-      <a class="enlace-card" href="/info">
+      <a class="enlace-card" href={import.meta.env.BASE_URL + 'info'}>
         <img loading="lazy" src="https://res.cloudinary.com/durxpegdm/image/upload/v1762541707/noticias/contexto_de_descuento_y_promociones_una_imagen_wdoe7i.jpg" alt="Sobre nosotros" />
         <span>Sobre</span>
       </a>

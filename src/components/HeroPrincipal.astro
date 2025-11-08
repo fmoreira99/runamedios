@@ -21,7 +21,7 @@ import Marquee from "../components/Marquee.astro";
       </ul>
       <div class="cta">
         <a href="#canales" class="btn color-verde">Explorar contenidos</a>
-        <a href="/noticias" class="btn secundario color-sub">Ver noticias</a>
+        <a href={import.meta.env.BASE_URL + 'noticias'} class="btn secundario color-sub">Ver noticias</a>
       </div>
     </div>
 
@@ -141,24 +141,24 @@ import Marquee from "../components/Marquee.astro";
 <section class="principales contenedor"  id="principales">
   <h2 class="titulo-seccion princ-verde ">Noticias principales</h2>
   <div class="grid-3">
-    <a class="card" href="/noticias/noticia-1">
+    <a class="card" href={import.meta.env.BASE_URL + 'noticias/noticia-1'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762540572/noticias/gu_a_completa_c_mo_ganar_dinero_por_internet_2_modxom.jpg" alt="Noticia destacada 1" />
       <h3>Medida económica anunciada</h3>
       <p>Resumen breve de la noticia más relevante de la semana.</p>
     </a>
-    <a class="card" href="/noticias">
+    <a class="card" href={import.meta.env.BASE_URL + 'noticias'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762541707/noticias/contexto_de_descuento_y_promociones_una_imagen_wdoe7i.jpg" alt="Noticia destacada 2" />
       <h3>Panorama nacional</h3>
       <p>Claves del día: lo que no te puedes perder.</p>
     </a>
-    <a class="card" href="/noticias">
+    <a class="card" href={import.meta.env.BASE_URL + 'noticias'}>
       <img src="https://res.cloudinary.com/durxpegdm/image/upload/v1762544331/noticias/ChatGPT_Image_7_nov_2025_14_38_44_n2hvi6.png" alt="Noticia destacada 3" />
       <h3>Tendencias y análisis</h3>
       <p>La explicación detrás de los hechos más comentados.</p>
     </a>
   </div>
   <div class="acciones">
-    <a class="btn secundario color-verde buttonCuti" href="/noticias">Ver todas las noticias...</a>
+    <a class="btn secundario color-verde buttonCuti" href={import.meta.env.BASE_URL + 'noticias'}>Ver todas las noticias...</a>
   </div>
 </section>
 
@@ -169,7 +169,7 @@ import Marquee from "../components/Marquee.astro";
 <section class="recomendadas contenedor" id="recomendadas">
   <h2 class="titulo-seccion princ-verde">Páginas recomendadas</h2>
   <div class="grid-4">
-    <a class="mini"  href="/noticias">
+    <a class="mini"  href={import.meta.env.BASE_URL + 'noticias'}>
       <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQOvqNuZImcGDIhZ4iMr3JCeM1xwd3WpN7pMtLLfxl2z_6tidstsTTQ-hz7j4GlCa_TNaQyczWZEDz0vtVL7hERhRtgUoTdp8ne9T-F5cLQOoha4aOcRY1eo4Vb38_PScUal_sRsU6BYlkGX0Lrmc3kb2UqUtg.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=nzEzA2cZZa11BctstaSU3w&_nc_cat=102&_nc_oc=Adk3EY0dnbf0XZIu1dTDkgwDE23irHKWGR1UkmEPk6nmip0WlFNrp6lyKbsmNy9qGVg&ccb=9-4&oh=00_Afj-2yGiFo9rgYNLfWtqHR3CNYY1q5FOGGHaolPSqsdc5g&oe=691037CD&_nc_sid=5b3566" alt="Noticias" />
       <div class="info" >
         <span class="tag">Historias anonimas</span>
