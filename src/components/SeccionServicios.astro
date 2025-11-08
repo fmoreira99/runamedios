@@ -49,21 +49,39 @@ const servicios = [
 <section class="servicios">
   {servicios.map((item, i) => (
     <article class={`bloque ${i % 2 === 1 ? "invertido" : ""}`}>
-      <figure class="media" aria-label={item.titulo}>
+      <figure class={`media ${i % 2 === 1 ? 'reveal-right' : 'reveal-left'}`} aria-label={item.titulo}>
         <img src={item.img} alt={item.titulo} loading="lazy" />
         <figcaption class="badge">{item.numero}</figcaption>
       </figure>
 
-      <div class="contenido">
+      <div class={`contenido ${i % 2 === 1 ? 'reveal-left' : 'reveal-right'}`}>
         <h3 class="princ-verde">{item.titulo}</h3>
         <p>{item.texto}</p>
-        <a href={item.link} 
+        <a href={item.link ? (item.link.startsWith('http') ? item.link : (import.meta.env.BASE_URL + item.link.replace(/^\//, ''))) : '#'} 
         class={`btn ${item.boton.includes("🔒")  ? "disabled" : ""}`}
         >{item.boton}</a>
       </div>
     </article>
   ))}
 </section>
+
+<script is:inline>
+  (() => {
+    const opts = { root: null, threshold: 0.15, rootMargin: '0px 0px -10% 0px' };
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      }
+    }, opts);
+
+    const nodes = document.querySelectorAll('.reveal-left, .reveal-right');
+    nodes.forEach((el) => io.observe(el));
+  })();
+  </script>
 
 <style>
   .disabled 
@@ -143,6 +161,23 @@ const servicios = [
   }
   .btn:hover{ background:#01402E; color:#ffffff; }
   .btn:active{ transform:translateY(1px); }
+
+  /* Animaciones de aparición/desaparición con scroll */
+  .reveal-left,
+  .reveal-right{
+    opacity: 0;
+    filter: blur(6px);
+    transition: transform .6s ease, opacity .6s ease, filter .6s ease;
+    will-change: transform, opacity, filter;
+  }
+  .reveal-left{ transform: translateX(-40px); }
+  .reveal-right{ transform: translateX(40px); }
+  .in-view.reveal-left,
+  .in-view.reveal-right{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
 
   /* Responsive */
   @media (max-width: 980px){
