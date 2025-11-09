@@ -1,0 +1,31 @@
+---
+const KEY = "35e985a5b4f4a38f982c6df2076419fc";
+const W = 320,
+  H = 50;
+const uid = `ad_${KEY}_${Math.random().toString(36).slice(2)}`;
+---
+
+<div id={uid} class="ad-box" style={`width:${W}px;max-width:100%`}>
+  <div style={`width:${W}px;height:${H}px;max-width:100%;overflow:hidden`}>
+    <script type="text/javascript">
+      atOptions = {
+        key: "35e985a5b4f4a38f982c6df2076419fc",
+        format: "iframe",
+        height: 50,
+        width: 320,
+        params: {},
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="//www.highperformanceformat.com/35e985a5b4f4a38f982c6df2076419fc/invoke.js"
+    ></script>
+  </div>
+</div>
+<style>
+  .ad-box {
+    margin: 16px auto;
+    display: flex;
+    justify-content: center;
+  }
+</style>

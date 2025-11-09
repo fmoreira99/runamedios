@@ -19,20 +19,100 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout title={`${post.data.title} - RunaMedios`}>
-  <article class="contenedor">
-    <h1>{post.data.title}</h1>
-    <p class="meta">{post.data.date}</p>
-    {post.data.img && <img class="cover" src={post.data.img} alt={post.data.title} />}
-    <div class="contenido">
-      <Content />
-    </div>
-  </article>
+  <section class="contenedor" style="display: flex;">
+    <aside class="ad-left">
+      <div class="ad-box ad-160x600">
+        <script type="text/javascript">
+          atOptions = {
+            key: "1a886af9fafacd539ac87d3c3fad0fb8",
+            format: "iframe",
+            height: 600,
+            width: 160,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="//www.highperformanceformat.com/1a886af9fafacd539ac87d3c3fad0fb8/invoke.js"
+        ></script>
+      </div>
+    </aside>
+
+    <article class="main">
+      <h1>{post.data.title}</h1>
+      <p class="meta">{post.data.date}</p>
+      {post.data.img && <img class="cover" src={post.data.img} alt={post.data.title} />}
+      <div class="contenido">
+        <Content />
+      </div>
+    </article>
+
+    <aside class="ad-right">
+      <div class="ad-box ad-160x300">
+        <script type="text/javascript">
+          atOptions = {
+            key: "08b2c4cc732051094c6966a81721d1a3",
+            format: "iframe",
+            height: 300,
+            width: 160,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="//www.highperformanceformat.com/08b2c4cc732051094c6966a81721d1a3/invoke.js"
+        ></script>
+      </div>
+    </aside>
+  </section>
 </BaseLayout>
 
 <style>
-  .contenedor { max-width: 800px; margin: auto; padding: 40px 20px; }
+  .contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .main {
+    min-width: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .ad-left,
+  .ad-right {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+
+  .ad-box {
+    width: 160px;
+    background: #0c0f12;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px dashed #4cf2d6;
+  }
+  .ad-160x300 { height: 300px; }
+  .ad-160x600 { height: 600px; }
+
   h1 { margin-bottom: 8px; color: #4cf2d6; }
   .meta { opacity: 0.7; font-size: 14px; margin-bottom: 16px; }
   .cover { width: 100%; border-radius: 8px; margin: 16px 0 24px; }
   .contenido :global(p) { line-height: 1.8; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .contenedor { grid-template-columns: 1fr; }
+    .ad-left, .ad-right { display: none; }
+    .main { max-width: 700px; }
+  }
 </style>

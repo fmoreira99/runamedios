@@ -1,0 +1,15 @@
+---
+import AdIframe from "./AdIframe.astro";
+
+const SLOTS: Record<string, {adKey:string;width:number;height:number}> = {
+  banner728: { adKey: "9eef77ca2aa6c15adf4cb0f66c8462ca", width: 728, height: 90 },
+  rect300:   { adKey: "1008c75c026f73db8b782f0bb6afb77a", width: 300, height: 250 },
+  banner468: { adKey: "61895c843e928669700118b61332bf99", width: 468, height: 60 },
+  mobile320: { adKey: "35e985a5b4f4a38f982c6df2076419fc", width: 320, height: 50 },
+};
+
+const { slot, className = "" } = Astro.props as { slot: keyof typeof SLOTS; className?: string };
+const cfg = SLOTS[slot];
+if (!cfg) throw new Error(`AdSlot desconocido: ${String(slot)}`);
+---
+<AdIframe adKey={cfg.adKey} width={cfg.width} height={cfg.height} className={className} />

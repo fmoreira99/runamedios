@@ -1,16 +1,38 @@
 {
   
   "name": "runamedios",
+  
   "type": "module",
+  
   "version": "0.0.1",
+  
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+  
+    
+  "dev": "astro dev",
+  
+    
+  "build": "astro build",
+  
+    
+  "preview": "astro preview",
+  
+    
+  "astro": "astro"
+  
   },
+  
   "dependencies": {
-    "@astrojs/mdx": "^4.3.10",
-    "astro": "^5.15.4"
+  
+    
+  "astro": "^5.15.4"
+  
+  },
+  
+  "devDependencies": {
+  
+    
+  "@astrojs/mdx": "^4.3.10"
+  
   }
 }

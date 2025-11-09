@@ -1,8 +1,11 @@
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://noticias.zonasilau.site', // SOLO el dominio
-  base: '/',                               // raíz del dominio personalizado
+  site: 'https://noticias.zonasilau.site', // dominio
+  base: '/',                               // raíz
   output: 'static',
-  outDir: 'docs',                          // Astro construye directo en /docs
+  outDir: 'docs',                          // build a /docs
+  integrations: [mdx()],                   // 👈 habilita .mdx
 });

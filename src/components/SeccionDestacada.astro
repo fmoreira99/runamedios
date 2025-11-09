@@ -36,10 +36,10 @@ const noticias = await getCollection("noticias");
     </div>
   </div>
 
-  <div class="lado-der">
+  <div class="lado-der" style="max-height: 500px; overflow-y: auto;">
     {
       noticias
-        .slice(-3)
+        .slice(-10)
         .reverse()
         .map((post, idx) => (
           <a
@@ -234,5 +234,28 @@ const noticias = await getCollection("noticias");
     will-change: transform, opacity;
     animation: slideInRight 0.6s ease-out forwards;
     animation-delay: var(--delay, 0s);
+  }
+
+  /* Scrollbar oscuro coherente con el tema (lado derecho) */
+  .lado-der {
+    /* Firefox */
+    scrollbar-color: #162029 #0c0f12; /* thumb track */
+    scrollbar-width: thin;
+  }
+
+  /* WebKit (Chrome, Edge, Safari) */
+  .lado-der::-webkit-scrollbar {
+    width: 10px;
+  }
+  .lado-der::-webkit-scrollbar-track {
+    background: #0c0f12;
+  }
+  .lado-der::-webkit-scrollbar-thumb {
+    background-color: #162029;
+    border-radius: 8px;
+    border: 2px solid #0c0f12; /* separa el pulgar del track */
+  }
+  .lado-der::-webkit-scrollbar-thumb:hover {
+    background-color: #1b2a36; /* un poco más claro al hover */
   }
 </style>

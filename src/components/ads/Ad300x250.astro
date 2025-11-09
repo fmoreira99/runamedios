@@ -1,0 +1,17 @@
+---
+const KEY = "1008c75c026f73db8b782f0bb6afb77a";
+const W = 300, H = 250;
+const uid = `ad_${KEY}_${Math.random().toString(36).slice(2)}`;
+---
+<div id={uid} class="ad-box" style={`width:${W}px;max-width:100%`}>
+  <div style={`width:${W}px;height:${H}px;max-width:100%;overflow:hidden`}>
+    <script is:inline set:html={`(function(){
+      window.atOptions = { key: '${KEY}', format: 'iframe', height: ${H}, width: ${W}, params: {} };
+      var s=document.createElement('script'); s.type='text/javascript'; s.async=true;
+      s.src='https://www.highperformanceformat.com/${KEY}/invoke.js';
+      (document.currentScript.parentElement||document.body).appendChild(s);
+      setTimeout(function(){ try{ delete window.atOptions }catch(e){} }, 0);
+    })();`}></script>
+  </div>
+</div>
+<style>.ad-box{margin:16px auto;display:flex;justify-content:center}</style>
