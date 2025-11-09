@@ -8,10 +8,10 @@ const uid = `ad_${adKey}_${Math.random().toString(36).slice(2)}`;
   <div class="ad-inner" style={`width:${width}px;height:${height}px;max-width:100%;overflow:hidden`}>
     <script is:inline>
       (function () {
-        const key = {JSON.stringify(adKey)};
-        const w = {width};
-        const h = {height};
-        const mount = document.getElementById({JSON.stringify(uid)}) || document.body;
+        const key = JSON.stringify(adKey);
+        const w = width;
+        const h = height
+        const mount = document.getElementById(uid) || document.body;
 
         window.atOptions = {
           key,
