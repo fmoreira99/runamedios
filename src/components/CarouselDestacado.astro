@@ -78,6 +78,7 @@ const items = [
     scrollbar-width: none; 
     height: 500px; 
     padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
   }
 
   .carousel::-webkit-scrollbar { display: none; }
@@ -95,6 +96,7 @@ const items = [
     cursor: pointer;
     transition: 0.3s ease;
     overflow: hidden;
+    scroll-snap-align: start;
   }
 
   .item.active { 
@@ -124,9 +126,24 @@ const items = [
   border-bottom-right-radius: 14px;
 }
 
-.item.active .item-desc {
-  transform: translateY(0); /* sube al hacer clic */
-}
+  .item.active .item-desc {
+    transform: translateY(0); /* sube al hacer clic */
+  }
+
+  /* Responsivo */
+  @media (max-width: 1024px) {
+    .game-section { padding: 40px 16px; }
+    .carousel { height: 420px; }
+    .item { flex: 0 0 320px; }
+    .item.active { flex: 0 0 360px; }
+  }
+  @media (max-width: 640px) {
+    .line-title { font-size: 22px; margin-bottom: 16px; }
+    .carousel { height: 340px; gap: 12px; }
+    .item { flex: 0 0 80vw; }
+    .item.active { flex: 0 0 82vw; }
+    .item-desc { font-size: 14px; padding: 14px; }
+  }
 
 
 </style>

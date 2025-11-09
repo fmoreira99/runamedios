@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AdSlot from "../../components/ads/AdSlot.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -28,15 +29,15 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
       <div class="ad-box ad-160x300">
         <!-- Publicidad 160x300 (reemplaza KEY por la tuya) -->
         <script type="text/javascript">
-          atOptions = {
-            'key': 'REEMPLAZA_KEY_160x300',
-            'format': 'iframe',
-            'height': 300,
-            'width': 160,
-            'params': {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/REEMPLAZA_KEY_160x300/invoke.js"></script>
+	atOptions = {
+		'key' : '08b2c4cc732051094c6966a81721d1a3',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/08b2c4cc732051094c6966a81721d1a3/invoke.js"></script>
       </div>
     </aside>
 
@@ -44,70 +45,78 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
       <h1>Noticias</h1>
 
       <div class="lista">
-        {pagePosts.map((post) => (
-          <a href={`/noticias/${post.slug}`} class="card">
-            {post.data.img && <img src={post.data.img} alt={post.data.title} />}
-            <h2>{post.data.title}</h2>
-            <p>{post.data.date}</p>
-          </a>
-        ))}
+        {
+          pagePosts.map((post) => (
+            <a href={`/noticias/${post.slug}`} class="card">
+              {post.data.img && (
+                <img src={post.data.img} alt={post.data.title} />
+              )}
+              <h2>{post.data.title}</h2>
+              <p>{post.data.date}</p>
+            </a>
+          ))
+        }
       </div>
 
-      <!-- Banner 728x90 existente -->
-      <script type="text/javascript">
-        atOptions = {
-          'key': '9eef77ca2aa6c15adf4cb0f66c8462ca',
-          'format': 'iframe',
-          'height': 90,
-          'width': 728,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/9eef77ca2aa6c15adf4cb0f66c8462ca/invoke.js"></script>
+      <!-- Banner 728x90 responsivo -->
+      <div class="ad-box" style="width: 728px; height: 90px; margin-top: 10px;">
+        <script type="text/javascript">
+          atOptions = {
+            key: "9eef77ca2aa6c15adf4cb0f66c8462ca",
+            format: "iframe",
+            height: 90,
+            width: 728,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="//www.highperformanceformat.com/9eef77ca2aa6c15adf4cb0f66c8462ca/invoke.js"
+        ></script>
+      </div>
 
       <nav class="pagination" aria-label="Paginación de noticias">
-        <a class="page-btn prev" href={pageHref(Math.max(1, page - 1))} aria-disabled={page === 1}>Anterior</a>
+        <a
+          class="page-btn prev"
+          href={pageHref(Math.max(1, page - 1))}
+          aria-disabled={page === 1}>Anterior</a
+        >
         <div class="pages">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-            <a
-              href={pageHref(n)}
-              class={`page-num ${n === page ? 'active' : ''}`}
-              aria-current={n === page ? 'page' : undefined}
-            >
-              {n}
-            </a>
-          ))}
+          {
+            Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <a
+                href={pageHref(n)}
+                class={`page-num ${n === page ? "active" : ""}`}
+                aria-current={n === page ? "page" : undefined}
+              >
+                {n}
+              </a>
+            ))
+          }
         </div>
-        <a class="page-btn next" href={pageHref(Math.min(totalPages, page + 1))} aria-disabled={page === totalPages}>Siguiente</a>
+        <a
+          class="page-btn next"
+          href={pageHref(Math.min(totalPages, page + 1))}
+          aria-disabled={page === totalPages}>Siguiente</a
+        >
       </nav>
     </div>
 
     <aside class="ad-right">
-      <div class="ad-box ad-160x600">
-        <!-- Publicidad 160x600 (derecha A) -->
+      <div class="ad-box ad-160x600" >
         <script type="text/javascript">
           atOptions = {
-            'key': 'REEMPLAZA_KEY_160x600_A',
-            'format': 'iframe',
-            'height': 600,
-            'width': 160,
-            'params': {}
+            key: "1a886af9fafacd539ac87d3c3fad0fb8",
+            format: "iframe",
+            height: 600,
+            width: 160,
+            params: {},
           };
         </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/REEMPLAZA_KEY_160x600_A/invoke.js"></script>
-      </div>
-      <div class="ad-box ad-160x600">
-        <!-- Publicidad 160x600 (derecha B) -->
-        <script type="text/javascript">
-          atOptions = {
-            'key': 'REEMPLAZA_KEY_160x600_B',
-            'format': 'iframe',
-            'height': 600,
-            'width': 160,
-            'params': {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/REEMPLAZA_KEY_160x600_B/invoke.js"></script>
+        <script
+          type="text/javascript"
+          src="//www.highperformanceformat.com/1a886af9fafacd539ac87d3c3fad0fb8/invoke.js"
+        ></script>
       </div>
     </aside>
   </section>
@@ -124,7 +133,9 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
     align-items: start;
   }
 
-  .main { min-width: 0; }
+  .main {
+    min-width: 0;
+  }
 
   .ad-left,
   .ad-right {
@@ -143,9 +154,15 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
     overflow: hidden;
     border: 1px dashed #4cf2d6;
   }
-  .ad-160x300 { height: 300px; }
-  .ad-160x600 { height: 600px; }
-  .ad-right .ad-box + .ad-box { margin-top: 20px; }
+  .ad-160x300 {
+    height: 300px;
+  }
+  .ad-160x600 {
+    height: 600px;
+  }
+  .ad-right .ad-box + .ad-box {
+    margin-top: 20px;
+  }
 
   h1 {
     margin-bottom: 20px;
@@ -158,22 +175,30 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
   .card {
-    background: #0C0F12;
+    background: #0c0f12;
     border-radius: 8px;
     padding: 12px;
     text-decoration: none;
     color: #ccd0d4;
     transition: 0.2s;
   }
-  .card:hover { background: #162029; }
+  .card:hover {
+    background: #162029;
+  }
   .card img {
     width: 100%;
     border-radius: 6px;
     height: 160px;
     object-fit: cover;
   }
-  .card h2 { font-size: 18px; margin-top: 10px; }
-  .card p { font-size: 13px; opacity: 0.6; }
+  .card h2 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .card p {
+    font-size: 13px;
+    opacity: 0.6;
+  }
 
   /* Paginación */
   .pagination {
@@ -183,29 +208,43 @@ const pageHref = (n) => (n === 1 ? "/noticias" : `/noticias/${n}`);
     justify-content: center;
     gap: 12px;
   }
-  .page-btn, .page-num {
+  .page-btn,
+  .page-num {
     background: #0c0f12;
     border: 1px solid #162029;
     color: #ccd0d4;
     border-radius: 6px;
     padding: 8px 12px;
     text-decoration: none;
-    transition: background .2s, border-color .2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
     font-size: 14px;
   }
-  .page-btn:hover, .page-num:hover { background: #162029; }
+  .page-btn:hover,
+  .page-num:hover {
+    background: #162029;
+  }
   .page-num.active {
     background: #01402e;
     border-color: #01402e;
     color: #ffffff;
     font-weight: 600;
   }
-  .pages { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pages {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
 
   /* Responsive */
   @media (max-width: 1024px) {
-    .contenedor { grid-template-columns: 1fr; }
-    .ad-left, .ad-right { display: none; }
+    .contenedor {
+      grid-template-columns: 1fr;
+    }
+    .ad-left,
+    .ad-right {
+      display: none;
+    }
   }
 </style>
-

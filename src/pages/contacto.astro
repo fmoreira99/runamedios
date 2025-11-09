@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contacto - RunaMedia">
+  <section style="max-width:900px;margin:0 auto;padding:40px 20px">
+    <h1 style="color:#4cf2d6;margin:0 0 12px">Contacto</h1>
+    <p>¿Quieres escribirnos, colaborar o anunciarte? Completa el formulario o usa los datos de contacto.</p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px">
+      <label>
+        <span>Nombre</span>
+        <input type="text" placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:6px;border:1px solid #162029;background:#0c0f12;color:#e8ecef" />
+      </label>
+      <label>
+        <span>Correo</span>
+        <input type="email" placeholder="tucorreo@ejemplo.com" style="width:100%;padding:10px;border-radius:6px;border:1px solid #162029;background:#0c0f12;color:#e8ecef" />
+      </label>
+      <label>
+        <span>Mensaje</span>
+        <textarea rows="6" placeholder="Cuéntanos en qué podemos ayudarte" style="width:100%;padding:10px;border-radius:6px;border:1px solid #162029;background:#0c0f12;color:#e8ecef"></textarea>
+      </label>
+      <button style="background:#01402e;color:#fff;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;justify-self:start">Enviar</button>
+    </div>
+
+    <div style="margin-top:24px;opacity:.8">
+      <p>También puedes escribirnos a: <a href="mailto:hola@runamedia.example" style="color:#4cf2d6;text-decoration:none">hola@runamedia.example</a></p>
+    </div>
+  </section>
+</BaseLayout>
+

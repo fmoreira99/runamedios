@@ -5,30 +5,65 @@ const { adKey, width, height, className = "" } = Astro.props as {
 const uid = `ad_${adKey}_${Math.random().toString(36).slice(2)}`;
 ---
 <div id={uid} class={`ad-box ${className}`} style={`width:${width}px;max-width:100%`}>
-  <div style={`width:${width}px;height:${height}px;max-width:100%;overflow:hidden`}>
+  <div class="ad-inner" style={`width:${width}px;height:${height}px;max-width:100%;overflow:hidden`}>
     <script is:inline>
-      (function(){
+      (function () {
+        const key = {JSON.stringify(adKey)};
+        const w = {width};
+        const h = {height};
+        const mount = document.getElementById({JSON.stringify(uid)}) || document.body;
+
         window.atOptions = {
-          key: '${adKey}',
+          key,
           format: 'iframe',
-          height: ${height},
-          width: ${width},
+          height: h,
+          width:  w,
           params: {}
         };
-        var s = document.createElement('script');
+
+        const s = document.createElement('script');
         s.type = 'text/javascript';
-        s.async = false; // importante para que lea ESTE atOptions
-        s.src = '//www.highperformanceformat.com/${adKey}/invoke.js';
-        (document.currentScript.parentElement || document.body).appendChild(s);
+        s.async = false; // asegura que lea ESTE atOptions antes de cargar el invoke
+        s.src = '//www.highperformanceformat.com/' + key + '/invoke.js';
+        mount.appendChild(s);
+
+        // Escalado responsivo si el contenedor es más estrecho que el ancho del anuncio
+        function fit() {
+          try {
+            const outer = mount;
+            const inner = outer.querySelector('.ad-inner');
+            if (!inner || !outer) return;
+            const available = outer.clientWidth || outer.getBoundingClientRect().width;
+            const targetW = w;
+            const scale = Math.min(1, available / targetW);
+            inner.style.transform = `scale(${scale})`;
+            inner.style.transformOrigin = 'top left';
+            outer.style.height = (h * scale) + 'px';
+          } catch {}
+        }
+        window.addEventListener('resize', fit);
+        setTimeout(fit, 0);
       })();
     </script>
+
     <noscript>
-      <iframe src={`//www.highperformanceformat.com/${adKey}/invoke.js`} width={width} height={height} style="border:0;"></iframe>
+      <iframe
+        src={`//www.highperformanceformat.com/${adKey}/invoke.js`}
+        width={width}
+        height={height}
+        style="border:0;"
+      ></iframe>
     </noscript>
   </div>
 </div>
 
 <style>
-  .ad-box{display:flex;justify-content:center;align-items:center;margin:16px auto;background:#0c0f12;border:1px dashed #4cf2d6;border-radius:8px}
-  @media (max-width:760px){ .ad-box{border:none;background:transparent} }
+  .ad-box{
+    display:flex;justify-content:center;align-items:center;
+    margin:16px auto;background:#0c0f12;border:1px dashed #4cf2d6;border-radius:8px
+  }
+  .ad-inner{ will-change: transform; }
+  @media (max-width:760px){
+    .ad-box{border:none;background:transparent}
+  }
 </style>
