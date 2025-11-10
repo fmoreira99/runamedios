@@ -5,7 +5,7 @@ const noticias = await getCollection("noticias");
 
 <section class="destacadas" id="destacadas">
   <div class="lado-izq">
-    <div style="width: 500px; height: 200px; border-radius: 25px;">
+    <div class="hero-card">
       <div class="glow-frame">
         <img
           class="glow-image"
@@ -36,7 +36,7 @@ const noticias = await getCollection("noticias");
     </div>
   </div>
 
-  <div class="lado-der" style="max-height: 500px; overflow-y: auto;">
+  <div class="lado-der">
     {
       noticias
         .slice(-10)
@@ -66,6 +66,12 @@ const noticias = await getCollection("noticias");
     padding: 60px 40px;
     max-width: 1400px;
     margin: auto;
+  }
+
+  .hero-card {
+    width: min(500px, 100%);
+    min-height: 200px;
+    border-radius: 25px;
   }
 
   .lado-izq h2 {
@@ -119,6 +125,8 @@ const noticias = await getCollection("noticias");
   .lado-der {
     display: grid;
     gap: 20px;
+    max-height: 500px;
+    overflow-y: auto;
   }
 
   .card {
@@ -152,6 +160,53 @@ const noticias = await getCollection("noticias");
   .texto span {
     font-size: 14px;
     opacity: 0.6;
+  }
+
+  @media (max-width: 1024px) {
+    .destacadas {
+      grid-template-columns: 1fr;
+      padding: 40px 24px;
+      gap: 32px;
+    }
+
+    .lado-izq {
+      text-align: center;
+    }
+
+    .hero-card {
+      margin: 0 auto 16px;
+    }
+
+    .lado-der {
+      max-height: none;
+      overflow: visible;
+    }
+
+    .suscripcion {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .destacadas {
+      padding: 32px 16px;
+    }
+
+    .lado-izq h2 {
+      font-size: 28px;
+    }
+
+    .lado-izq p {
+      font-size: 15px;
+    }
+
+    .card {
+      grid-template-columns: 1fr;
+    }
+
+    .card img {
+      height: 200px;
+    }
   }
 
   /* Marco con borde difuminado animado rojo/verde alrededor de la imagen */

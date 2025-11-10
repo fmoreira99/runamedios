@@ -284,6 +284,19 @@ import SeccionNoticiasPrincipales from "../components/SeccionNoticiasPrincipales
   {
     margin: 40px 20px 100px 100px;
   }
+   /* Tablet: ≤1024px */
+  @media (max-width: 1024px) {
+    .recomendadas {
+        margin: 40px 0px 0px 0px;
+    }
+  }
+
+  /* Celular: ≤767px */
+  @media (max-width: 767px) {
+    .recomendadas {
+        margin:  40px 0px 0px 0px;
+    }
+    }
 </style>
 
 
@@ -294,29 +307,33 @@ import SeccionNoticiasPrincipales from "../components/SeccionNoticiasPrincipales
   <h2 class="titulo-seccion princ-verde">Páginas recomendadas</h2>
   <div class="grid-4">
     <a class="mini"  href={import.meta.env.BASE_URL + 'noticias'}>
-      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQOvqNuZImcGDIhZ4iMr3JCeM1xwd3WpN7pMtLLfxl2z_6tidstsTTQ-hz7j4GlCa_TNaQyczWZEDz0vtVL7hERhRtgUoTdp8ne9T-F5cLQOoha4aOcRY1eo4Vb38_PScUal_sRsU6BYlkGX0Lrmc3kb2UqUtg.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=nzEzA2cZZa11BctstaSU3w&_nc_cat=102&_nc_oc=Adk3EY0dnbf0XZIu1dTDkgwDE23irHKWGR1UkmEPk6nmip0WlFNrp6lyKbsmNy9qGVg&ccb=9-4&oh=00_Afj-2yGiFo9rgYNLfWtqHR3CNYY1q5FOGGHaolPSqsdc5g&oe=691037CD&_nc_sid=5b3566" alt="Noticias" />
+      <img src="https://img.icons8.com/liquid-glass/48/musical-stories.png" alt="Noticias" />
       <div class="info" >
         <span class="tag">Historias anonimas</span>
         <p>Lee historias y comparte tus propias historias</p>
       </div>
     </a>
     <a class="mini" style="background:#01402E ;" href="https://gamer.zonasilau.site/">
-      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m340/AQPLNCOKGhm2H_JDRvFd-2nzw_pDEA_oHg2IGxYz8_fZKhCAx53iUbBQYJhOYTP3XrDfyv4FaeKOsJAd2MPVfuJBvO48FFPourD4bujJnVjDJoYtECmS9GdAwSO64yh9VrEJ5Qzmi7S_6QYoLEGUM_6V1pq73w.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=NKDZuMBgK_IL8saDxIsP4Q&_nc_cat=106&_nc_oc=AdkbEoP_GA9aSE3XFhvYqbu744geTfrhTV3ADiK0h3TaqVBwMJoPcbzqZASYMQrY424&ccb=9-4&oh=00_AfhEc0xHxNv9-zu4onILaURHL-Rbu8avMhEtvoPG_PAiwQ&oe=691025B5&_nc_sid=5b3566" alt="Galería" />
+      <img src="https://img.icons8.com/external-fauzidea-flat-fauzidea/64/external-gamer-avatar-fauzidea-flat-fauzidea.png" alt="Galería" />
       <div class="info" >
         <span class="tag">Galería gamer</span>
         <p>Imágenes que cuentan historias.</p>
       </div>
     </a>
     <a class="mini" style="background:#0C0F12 ;" href="https://www.cuantocabron.com/">
-      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m421/AQMJGtrjP38Vom0pc4TqKd5PFBUPimt8FNpJJVRaI93F4CgANm4pqi0MuCpfhhyymtK4K7_d7KHD5TJ9xlmjfBSVvYU1X1_JzxigE0S57LdFMp1DrRIVFGBjhOdfP6w7Qvv32p4pdQXeZHWIazIEhZZJJVb0qw.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=XVkioAZSo6UaT9TKTdQGpw&_nc_cat=109&_nc_oc=Adn60_itDmndFm2rIE1Bf_pXL2vxyz4zq5ItdXqxK8N7R5_ML0xMjNjRwdUmmr8kia4&ccb=9-4&oh=00_AfjktbUMSltKRAc85t33950CV0k9AS34_-YIkNXZNXMwVw&oe=6910A1C8&_nc_sid=5b3566" alt="Glosario" />
+     
+       <img   style="background: #fff !important;" src="https://img.icons8.com/ios/50/angry-face-meme.png" alt="Glosario" />
+    
       <div class="info">
         <span class="tag">Memes</span>
         <p>Conceptos clave explicados de forma simple.</p>
       </div>
     </a>
     <a class="mini" style="background:#01402E ;" href="https://www.instagram.com/belite.medicinaestetica/">
-      <img src="https://scontent.fsnc2-1.fna.fbcdn.net/o1/v/t0/f2/m257/AQM-K9E2PhXAtdj1-tRrlIaDj28MQ-ha5miiPj6Mk49EZ2-AXbnKt3QfCLyU9Lyl9njbpBAxwZmoVCeUxLIHZWrwW1UyTWLiRUuQ8mksoL-WlovqWc3rsY4APsDEFC08.jpeg?_nc_ht=scontent.fsnc2-1.fna.fbcdn.net&_nc_gid=GsgfyqqGwoZFiCc06N8BIQ&_nc_cat=106&_nc_oc=AdmNKWokA-TtaDPr5R3S47HizHpoKeWQU8KZN29qD6Nws-dGzlJfO4JlGbfSGTvLKK0&ccb=9-4&oh=00_Afg5eGyYPty33S11AgXJFN7NT38xtqiBeJ5XqrxHJV4PZw&oe=6910271B&_nc_sid=5b3566" alt="Sobre" />
-      <div class="info">
+      <div style="" >
+      <img src="https://img.icons8.com/color/48/gift--v1.png" alt="Sobre" />
+       
+      </div> <div class="info">
         <span class="tag">Promociones y códigos</span>
         <p>Quiénes somos y cómo trabajamos.</p>
       </div>
